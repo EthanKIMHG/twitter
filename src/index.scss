@@ -1,0 +1,27 @@
+$font : Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+$background: #1e293b;
+$white: #fff;
+$border: #708090;
+$primary : #31fEA4;
+$seconday : #DCDCDC;
+$red: #dc2729;
+$gray: #b4b9b9;
+
+
+body {
+  font-family: $font;
+}
+
+* {
+  background-color: $background;
+  color: $white;
+}
+
+.layout {
+  margin: 0 auto;
+  position: relative;
+  max-width: 600px;
+  min-height: 100vh;;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
+}
