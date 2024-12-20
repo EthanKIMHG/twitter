@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+yarn.lock
+.yarn/*
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,5 +27,3 @@ dist-ssr
 *.sln
 *.sw?
 
-./yarn.lock
-yarn.lock

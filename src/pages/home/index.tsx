@@ -3,6 +3,7 @@ import { Postprops } from "./types"
 import { Link } from "react-router-dom"
 import { FaComment, FaHeart, FaUserCircle } from "react-icons/fa"
 
+
 const posts: Postprops[] = [
   {
     id: "1",
@@ -32,6 +33,41 @@ const posts: Postprops[] = [
     createdAt: "2024.01.01",
     uid: "1232"
   },
+  {
+    id: "5",
+    email: "testuser@test.com",
+    content: "loremloremlorem",
+    createdAt: "2024.01.01",
+    uid: "1232"
+  },
+  {
+    id: "6",
+    email: "testuser@test.com",
+    content: "loremloremlorem",
+    createdAt: "2024.01.01",
+    uid: "1232"
+  },
+  {
+    id: "7",
+    email: "testuser@test.com",
+    content: "loremloremlorem",
+    createdAt: "2024.01.01",
+    uid: "1232"
+  },
+  {
+    id: "8",
+    email: "testuser@test.com",
+    content: "loremloremlorem",
+    createdAt: "2024.01.01",
+    uid: "1232"
+  },
+  {
+    id: "9",
+    email: "testuser@test.com",
+    content: "loremloremlorem",
+    createdAt: "2024.01.01",
+    uid: "1232"
+  },
   
 ]
 
@@ -53,7 +89,7 @@ export default function Home () {
           <label htmlFor="file-input" className="post-form__file">
             <FiImage className="post-form__file-icon"/>
           </label>
-          <input type="file" name="file-input" accept="image/*" onChange={handleFileUpload} hidden/>
+          <input type="file" name="file-input" accept="image/*" onChange={handleFileUpload} className="hidden"/>
           <input type="submit" value="Tweet" className="post-form__submit-button" />
         </div>
       </form>
@@ -75,11 +111,11 @@ export default function Home () {
               <button className="post__delete">Delete</button>
               <button className="post__edit"><Link to={`/posts/edit/${posts?.id}`}>Edit</Link></button>
               <button className="post__likes">
-                <FaHeart/>
+                <FaHeart fill="#31fEA4" stroke="none"/>
                 {posts?.likeCount ? posts.likeCount : 0}
               </button>
-              <button className="post__commments">
-                <FaComment />
+              <button className="post__comments">
+                <FaComment fill="#31fEA4" stroke="none" />
                 {posts?.comments ? posts.comments : 0}
               </button>
             </div>
@@ -87,5 +123,6 @@ export default function Home () {
         ))}
       </div>
     </div>
+    
   )
 }
