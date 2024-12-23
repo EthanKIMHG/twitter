@@ -12,21 +12,34 @@ import Login from "@pages/users/login"
 import Signup from "@pages/users/signup"
 import {Route, Routes, Navigate} from "react-router-dom"
 
-export default function Router () {
+interface RouterProps {
+  isAuthenticated: boolean
+}
+
+export default function Router ({isAuthenticated}: RouterProps) {
   return (
     <Routes>
-      <Route path='/' element={< Home/>}/>
-      <Route path='/posts' element={<PostList />}/>
-      <Route path='/posts/:id' element={<PostDetail />}/>
-      <Route path='/posts/new' element={<PostNew />}/>
-      <Route path='/posts/edit/:id' element={<PostEdit />}/>
-      <Route path='/profile' element={<Profile />}/>
-      <Route path='/profile/edit' element={<ProfileEdit />}/>
-      <Route path='/notifications' element={<Notifications />}/>
-      <Route path='/search' element={<Search />}/>
-      <Route path='/users/login' element={<Login />}/>
-      <Route path='/users/signup' element={<Signup />}/>
-      <Route path='*' element={<Navigate replace to="/" />} />
+      {isAuthenticated ? 
+      <>
+        <Route path='/' element={< Home/>}/>
+        <Route path='/posts' element={<PostList />}/>
+        <Route path='/posts/:id' element={<PostDetail />}/>
+        <Route path='/posts/new' element={<PostNew />}/>
+        <Route path='/posts/edit/:id' element={<PostEdit />}/>
+        <Route path='/profile' element={<Profile />}/>
+        <Route path='/profile/edit' element={<ProfileEdit />}/>
+        <Route path='/notifications' element={<Notifications />}/>
+        <Route path='/search' element={<Search />}/>
+        <Route path='*' element={<Navigate replace to="/" />} />
+      </>
+      :
+      <>
+        <Route path='/users/login' element={<Login />}/>
+        <Route path='/users/signup' element={<Signup />}/>
+        <Route path='*' element={<Navigate replace to="/users/login" />} />
+      </>}
+
+        
     </Routes>
   )
 }
